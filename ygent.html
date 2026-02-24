@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YG Entertainment Profile - Project Detail | Regita Cahya Arrahma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --project-primary: #0F67B1;
+            --project-secondary: #0F67B1;
+        }
+
+        body {
+            color: #0F67B1;
+        }
+
+        .project-detail-hero {
+            padding: var(--spacing-32) 0 var(--spacing-16);
+            background: var(--color-white);
+            text-align: center;
+        }
+
+        .project-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-category-tag {
+            display: inline-block;
+            padding: var(--spacing-2) var(--spacing-4);
+            background: rgba(15, 103, 177, 0.1);
+            color: #0F67B1;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .project-main-image {
+            max-width: 900px;
+            margin: var(--spacing-8) auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 103, 177, 0.15);
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: var(--spacing-8) auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 103, 177, 0.2);
+            background: #f8fafc;
+        }
+
+        .mySlides {
+            display: none;
+            animation: fade 1.5s;
+        }
+
+        .mySlides img {
+            width: 100%;
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* Navigation Buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(15, 103, 177, 0.3);
+            text-decoration: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(15, 103, 177, 0.8);
+        }
+
+        /* Dots/bullets/indicators */
+        .dot-container {
+            text-align: center;
+            padding: 15px;
+            background: transparent;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 2px;
+            background-color: #cbd5e1;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #0F67B1;
+        }
+
+        .project-info-grid {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-24);
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-section-title {
+            font-size: var(--font-size-2xl);
+            color: #0F67B1;
+            margin-bottom: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .project-section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #0F67B1;
+            border-radius: var(--radius-full);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            border: 1px solid var(--color-gray-100);
+        }
+
+        .feature-content h4 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2);
+            color: #0F67B1;
+        }
+
+        .feature-content p {
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            color: #0F67B1;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: var(--spacing-6);
+            left: var(--spacing-6);
+            z-index: 1000;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-4);
+            background: #0F67B1;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            color: var(--color-white);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-base);
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-4px);
+            box-shadow: var(--shadow-lg);
+            background: #0d5ca0;
+        }
+
+        /* Gen Z - Status Cards */
+        .status-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .status-card {
+            padding: var(--spacing-8);
+            border-radius: var(--radius-2xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .status-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-left: 6px solid #f43f5e;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 6px solid #22c55e;
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-weight: 700;
+        }
+
+        .problem-card h3 {
+            color: #9f1239;
+        }
+
+        .solution-card h3 {
+            color: #166534;
+        }
+
+        .status-card p {
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .problem-card p {
+            color: #be123c;
+        }
+
+        .solution-card p {
+            color: #15803d;
+        }
+
+        .status-icon {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .status-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="back-nav">
+        <a href="index.html#projects" class="btn-back">
+            <span>&larr;</span> Back to Projects
+        </a>
+    </nav>
+
+    <header class="project-detail-hero">
+        <div class="project-hero-content">
+            <span class="project-category-tag">Frontend Development</span>
+            <span class="project-category-tag">HTML</span>
+            <span class="project-category-tag">CSS</span>
+            <span class="project-category-tag">JS</span>
+            <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-4); color: #0F67B1;">YG
+                Entertainment Profile</h1>
+            <p style="font-size: var(--font-size-lg); opacity: 0.9; margin-bottom: var(--spacing-8); color: #0F67B1;">
+                A premium, modern, and responsive company profile website for a leading global entertainment agency.
+            </p>
+
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="https://private-user-images.githubusercontent.com/122368250/444350171-569e3755-b23f-4355-9a0b-64d3f916f849.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEzODUzNDgsIm5iZiI6MTc3MTM4NTA0OCwicGF0aCI6Ii8xMjIzNjgyNTAvNDQ0MzUwMTcxLTU2OWUzNzU1LWIyM2YtNDM1NS05YTBiLTY0ZDNmOTE2Zjg0OS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxOFQwMzI0MDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01ZmU2OWI3NGNhYzkwZTI4ZDc5YWE4NTQ1YTM4Y2FiZmY2MGQ4M2Q3MDUzMTQxMjFkMGE5NzNlMTNlZGQwZjNmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Ps0EyE4HmggEQIYMNOggfy7Ruzph0Pk3P84vQwmAmWU"
+                        alt="YG Entertainment Slide 1">
+                </div>
+                <div class="mySlides">
+                    <img src="https://private-user-images.githubusercontent.com/122368250/444350259-9fb413ef-0166-495b-bc88-04c8ac818366.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEzODUzNDgsIm5iZiI6MTc3MTM4NTA0OCwicGF0aCI6Ii8xMjIzNjgyNTAvNDQ0MzUwMjU5LTlmYjQxM2VmLTAxNjYtNDk1Yi1iYzg4LTA0YzhhYzgxODM2Ni5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxOFQwMzI0MDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03M2U2MGNmOWI0YjM4YzcyMjdkYmU3ZGFhYTE1NzJhYTA5ODBjYzY1OTkxMzlhODlhYTI2OGJjNGJmYzdjYTA0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.z84aavNwqqZf2cn6Qgmy8Plv--0uG8dCkW-LJKmBuIc"
+                        alt="YG Entertainment Slide 2">
+                </div>
+                <div class="mySlides">
+                    <img src="https://private-user-images.githubusercontent.com/122368250/444350468-ce00d619-2a45-47f6-8ec6-1baf1e1b5a7e.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEzODUzNDgsIm5iZiI6MTc3MTM4NTA0OCwicGF0aCI6Ii8xMjIzNjgyNTAvNDQ0MzUwNDY4LWNlMDBkNjE5LTJhNDUtNDdmNi04ZWM2LTFiYWYxZTFiNWE3ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxOFQwMzI0MDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01OTIyYmU2ZGJlMmMxM2YyMjZhYTIzNmViNDdlYTMxYWFiNWYyNmM4ZDgyODdmMWNlNjA3ZjJlZGZmYjBjM2Q5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.DBGbKBHG86VhIY7BumfC88qP2aZa1f_ZNUNZXXqeCdo"
+                        alt="YG Entertainment Slide 3">
+                </div>
+                <div class="mySlides">
+                    <img src="https://private-user-images.githubusercontent.com/122368250/444350592-33b93043-2c33-467c-a8cb-2118dd248c92.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEzODUzNDgsIm5iZiI6MTc3MTM4NTA0OCwicGF0aCI6Ii8xMjIzNjgyNTAvNDQ0MzUwNTkyLTMzYjkzMDQzLTJjMzMtNDY3Yy1hOGNiLTIxMThkZDI0OGM5Mi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxOFQwMzI0MDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jNTM2ZjQ0M2VhNDM0N2I1ODE1NWQ0ZjRiZWY1MzM4OTg1Y2ZhNTk2MGMyZTFmYWQxNmNmN2Y2NmMyMTc1YTBiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.KUZt3nkXKL_mYkACAQBic_S94SwM95UJ7Sw7uQDsYSo"
+                        alt="YG Entertainment Slide 4">
+                </div>
+                <div class="mySlides">
+                    <img src="https://private-user-images.githubusercontent.com/122368250/444350675-fde063c2-a750-430b-8e56-70c68b2ee234.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEzODUzNDgsIm5iZiI6MTc3MTM4NTA0OCwicGF0aCI6Ii8xMjIzNjgyNTAvNDQ0MzUwNjc1LWZkZTA2M2MyLWE3NTAtNDMwYi04ZTU2LTcwYzY4YjJlZTIzNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxOFQwMzI0MDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MWE0NjNhZDYyYzA5NjBkMjIyZmY5N2M4Y2M3YTAzMzU1MmViMWZkYzIzZTRjZDMxNDY5MTUxMzQ2ODQyYmNiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ZVW5IwROeCPNTdAxF7eKxj7yjqh72y2WccQ-hmZReZA"
+                        alt="YG Entertainment Slide 5">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="project-info-grid">
+        <div class="project-main-content">
+            <section class="project-detail-section">
+                <h2 class="project-section-title">About Project</h2>
+                <p style="margin-bottom: var(--spacing-12); text-align: justify; color: #0F67B1;">
+                    The YG Entertainment Profile website is a frontend development project focused on creating a
+                    high-end
+                    digital experience for fans and stakeholders. The goal was to modernize the company's web presence,
+                    focusing on artist showcase, news distribution, and global branding. Built as a static yet highly
+                    interactive web application, it ensures fast loading times and seamless responsive behavior across
+                    all devices.
+                </p>
+
+                <div class="status-cards-grid">
+                    <div class="status-card problem-card">
+                        <h3>
+                            <span class="status-icon">🎯</span> Problem
+                        </h3>
+                        <p style="text-align: justify;">
+                            Representing a global powerhouse like YG Entertainment requires a digital presence that
+                            feels
+                            as high-end as their talent. Traditional static sites often feel outdated and fail to
+                            capture the dynamic energy of the entertainment industry.
+                        </p>
+                    </div>
+                    <div class="status-card solution-card">
+                        <h3>
+                            <span class="status-icon">💡</span> Solution
+                        </h3>
+                        <p style="text-align: justify;">
+                            Developed a sleek, modern frontend using clean HTML/CSS and smooth JavaScript interactions.
+                            Focused on a minimalist yet impact-heavy design that puts the artists and content at the
+                            forefront.
+                        </p>
+                    </div>
+                </div>
+
+                <h2 class="project-section-title">Key Features</h2>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🏠</div>
+                    <div class="feature-content">
+                        <h4>Intuitive Home Page</h4>
+                        <p>A flagship entry point featuring dynamic highlights and a clean hierarchy of information.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎤</div>
+                    <div class="feature-content">
+                        <h4>Artist Showcase</h4>
+                        <p>Dedicated artist sections designed to highlight visual identity and recent works of the
+                            talent roster.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📢</div>
+                    <div class="feature-content">
+                        <h4>Notice & News Center</h4>
+                        <p>A structured and aesthetic way to distribute official announcements and company updates.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-content">
+                        <h4>About & Audition</h4>
+                        <p>Informative pages that facilitate talent discovery and provide deep insights into the company
+                            mission.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: var(--spacing-12) 0; border-top: 1px solid rgba(15, 103, 177, 0.1);">
+        <p style="opacity: 0.8; font-size: var(--font-size-sm);">© regitaarr, All rights reserved</p>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        }
+
+        // Auto slide
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+    </script>
+</body>
+
+</html>

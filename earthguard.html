@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarthGuard AR - Project Detail | Regita Cahya Arrahma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --project-primary: #0F67B1;
+            --project-secondary: #0F67B1;
+        }
+
+        body {
+            color: #0F67B1;
+        }
+
+        .project-detail-hero {
+            padding: var(--spacing-32) 0 var(--spacing-16);
+            background: var(--color-white);
+            text-align: center;
+        }
+
+        .project-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-category-tag {
+            display: inline-block;
+            padding: var(--spacing-2) var(--spacing-4);
+            background: rgba(15, 103, 177, 0.1);
+            color: #0F67B1;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .project-main-image {
+            max-width: 300px;
+            margin: var(--spacing-8) auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .project-main-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .project-info-grid {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-24);
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-section-title {
+            font-size: var(--font-size-2xl);
+            color: #0F67B1;
+            margin-bottom: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .project-section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #0F67B1;
+            border-radius: var(--radius-full);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            border: 1px solid var(--color-gray-100);
+        }
+
+        .feature-text h4 {
+            margin-bottom: var(--spacing-2);
+            color: #0F67B1;
+        }
+
+        .feature-text p {
+            color: #0F67B1;
+            opacity: 0.9;
+            font-size: var(--font-size-sm);
+            text-align: justify;
+        }
+
+        .sidebar-card {
+            background: var(--color-white);
+            padding: var(--spacing-8);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-primary);
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-item {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .sidebar-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-label {
+            display: block;
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #0F67B1;
+            opacity: 0.7;
+        }
+
+        .sidebar-value {
+            color: #0F67B1;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .btn-full-width {
+            width: 100%;
+            text-align: center;
+            margin-top: var(--spacing-4);
+        }
+
+        .back-nav {
+            position: fixed;
+            top: var(--spacing-6);
+            left: var(--spacing-6);
+            z-index: 1000;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-4);
+            background: #0F67B1;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            color: var(--color-white);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-base);
+        }
+
+        .btn-back:hover {
+            transform: translateX(-4px);
+            box-shadow: var(--shadow-lg);
+            color: var(--color-white);
+            background: #0d5ca0;
+        }
+
+        /* Gen Z - Problem & Solution Cards */
+        .status-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .status-card {
+            padding: var(--spacing-8);
+            border-radius: var(--radius-2xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .status-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-left: 6px solid #f43f5e;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 6px solid #22c55e;
+        }
+
+        .status-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .status-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-weight: 700;
+        }
+
+        .problem-card h3 {
+            color: #9f1239;
+        }
+
+        .solution-card h3 {
+            color: #166534;
+        }
+
+        .status-card p {
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .problem-card p {
+            color: #be123c;
+        }
+
+        .solution-card p {
+            color: #15803d;
+        }
+
+        .status-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Screen Gallery */
+        .screen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-8);
+            margin-top: var(--spacing-8);
+        }
+
+        .screen-item {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(15, 103, 177, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--color-white);
+        }
+
+        .screen-item:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(15, 103, 177, 0.15);
+            border-color: #0F67B1;
+        }
+
+        .screen-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .screen-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .status-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-card {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html#projects" class="btn-back">
+            <span>←</span> Back to Projects
+        </a>
+    </nav>
+
+    <header class="project-detail-hero">
+        <div class="project-hero-content">
+            <span class="project-category-tag">UI/UX Design</span>
+            <span class="project-category-tag">Augmented Reality</span>
+            <span class="project-category-tag">Canva</span>
+            <span class="project-category-tag">Mobile</span>
+            <span class="project-category-tag">Education</span>
+            <span class="project-category-tag">Quiz</span>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: var(--spacing-6); color: #0F67B1;">EarthGuard
+                AR</h1>
+            <p
+                style="color: #0F67B1; font-size: var(--font-size-lg); line-height: var(--line-height-relaxed); text-align: center;">
+                An interactive Augmented Reality solution designed to bridge the gap between abstract environmental data
+                and real-world disaster awareness.
+            </p>
+        </div>
+
+        <div class="project-main-image">
+            <img src="assets/LogoEarthGuard.png" alt="EarthGuard AR Logo Showcase">
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="project-info-grid">
+            <div class="project-main-content">
+                <section class="project-detail-section">
+                    <div class="status-cards-grid">
+                        <div class="status-card problem-card">
+                            <h3>
+                                <span class="status-icon">🎯</span> Problem
+                            </h3>
+                            <p style="text-align: justify;">
+                                Many users struggle to understand environmental disasters because learning materials are
+                                often theoretical and lack visualization. This reduces engagement and real-world
+                                understanding.
+                            </p>
+                        </div>
+                        <div class="status-card solution-card">
+                            <h3>
+                                <span class="status-icon">💡</span> Solution
+                            </h3>
+                            <p style="text-align: justify;">
+                                Design an interactive AR-based learning application that allows users to explore
+                                environmental disasters through real-time 3D simulations, comparisons, and guided
+                                educational content.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2 class="project-section-title">Project Overview</h2>
+                    <p style="margin-bottom: var(--spacing-8); color: #0F67B1; text-align: justify;">
+                        This AR system presents three main modules related to environmental disasters on the home
+                        screen. After following the guide, users scan markers to reveal immersive 3D environment models.
+                    </p>
+                    <p style="margin-bottom: var(--spacing-12); color: #0F67B1; text-align: justify;">
+                        Within the AR scene, users can interact with simulations such as rain, deforestation, and human
+                        activity levels. Educational hotspots provide detailed insights, while "Before" and "After"
+                        modes allow for clear environmental impact comparisons. The application also offers
+                        solution-based choices and concludes with a concise summary of the learning points.
+                    </p>
+
+                    <h2 class="project-section-title" style="margin-top: var(--spacing-16);">User Flow</h2>
+                    <div
+                        style="padding: var(--spacing-8); background: var(--color-gray-50); border-radius: var(--radius-xl); margin-bottom: var(--spacing-16);">
+                        <ol
+                            style="color: #0F67B1; font-size: var(--font-size-sm); list-style: none; counter-reset: flow-counter;">
+                            <li
+                                style="margin-bottom: var(--spacing-4); padding-left: var(--spacing-10); position: relative;">
+                                <span
+                                    style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: #0F67B1; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; counter-increment: flow-counter;">1</span>
+                                <strong>Onboarding & Selection</strong>: User opens the app and selects one of six
+                                disaster categories.
+                            </li>
+                            <li
+                                style="margin-bottom: var(--spacing-4); padding-left: var(--spacing-10); position: relative;">
+                                <span
+                                    style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: #0F67B1; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; counter-increment: flow-counter;">2</span>
+                                <strong>Context Setting</strong>: User reads a brief explanation of the selected
+                                disaster.
+                            </li>
+                            <li
+                                style="margin-bottom: var(--spacing-4); padding-left: var(--spacing-10); position: relative;">
+                                <span
+                                    style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: #0F67B1; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; counter-increment: flow-counter;">3</span>
+                                <strong>AR Immersion</strong>: User taps "View Simulation" and scans a marker to display
+                                a 3D disaster model.
+                            </li>
+                            <li
+                                style="margin-bottom: var(--spacing-4); padding-left: var(--spacing-10); position: relative;">
+                                <span
+                                    style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: #0F67B1; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; counter-increment: flow-counter;">4</span>
+                                <strong>Interactive Exploration</strong>: User explores causes, Before & After
+                                comparisons, and prevention methods.
+                            </li>
+                            <li
+                                style="margin-bottom: var(--spacing-4); padding-left: var(--spacing-10); position: relative;">
+                                <span
+                                    style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: #0F67B1; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; counter-increment: flow-counter;">5</span>
+                                <strong>Engagement & Assessment</strong>: Completes AR materials (50% progress) → Takes
+                                a quiz to reach 100%.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <h2 class="project-section-title">Screen Design</h2>
+                    <p style="margin-bottom: var(--spacing-8); color: #0F67B1; text-align: justify;">
+                        The user interface is designed with a focus on clarity and ease of use in augmented reality
+                        environments. Below is the complete visual design of all screens, showcasing the core flows and
+                        interactive elements.
+                    </p>
+
+                    <div class="screen-grid" style="margin-bottom: var(--spacing-24);">
+                        <div class="screen-item"><img src="assets/EarthGuard1.png" alt="EarthGuard Screen 1"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard2.png" alt="EarthGuard Screen 2"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard3.png" alt="EarthGuard Screen 3"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard4.png" alt="EarthGuard Screen 4"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard5.png" alt="EarthGuard Screen 5"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard6.png" alt="EarthGuard Screen 6"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard7.png" alt="EarthGuard Screen 7"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard8.png" alt="EarthGuard Screen 8"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard9.png" alt="EarthGuard Screen 9"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard10.png" alt="EarthGuard Screen 10"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard11.png" alt="EarthGuard Screen 11"></div>
+                        <div class="screen-item"><img src="assets/EarthGuard12.png" alt="EarthGuard Screen 12"></div>
+                    </div>
+
+                    <h2 class="project-section-title">Key Interaction Design</h2>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-6); margin-bottom: var(--spacing-16);">
+                        <div
+                            style="padding: var(--spacing-6); border: 1px solid rgba(15, 103, 177, 0.2); border-radius: var(--radius-lg); text-align: center; background: var(--color-white); box-shadow: var(--shadow-sm);">
+                            <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">👆</div>
+                            <h4 style="margin-bottom: var(--spacing-1); color: #0F67B1;">Tap</h4>
+                            <p style="font-size: var(--font-size-xs); color: #0F67B1; opacity: 0.8;">Select buttons and
+                                HUD elements</p>
+                        </div>
+                        <div
+                            style="padding: var(--spacing-6); border: 1px solid rgba(15, 103, 177, 0.2); border-radius: var(--radius-lg); text-align: center; background: var(--color-white); box-shadow: var(--shadow-sm);">
+                            <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">🤏</div>
+                            <h4 style="margin-bottom: var(--spacing-1); color: #0F67B1;">Pinch</h4>
+                            <p style="font-size: var(--font-size-xs); color: #0F67B1; opacity: 0.8;">Zoom in/out to see
+                                details</p>
+                        </div>
+                        <div
+                            style="padding: var(--spacing-6); border: 1px solid rgba(15, 103, 177, 0.2); border-radius: var(--radius-lg); text-align: center; background: var(--color-white); box-shadow: var(--shadow-sm);">
+                            <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">🖱️</div>
+                            <h4 style="margin-bottom: var(--spacing-1); color: #0F67B1;">Drag</h4>
+                            <p style="font-size: var(--font-size-xs); color: #0F67B1; opacity: 0.8;">Rotate or move the
+                                3D model</p>
+                        </div>
+                    </div>
+                    <p
+                        style="color: #0F67B1; font-size: var(--font-size-xs); font-style: italic; margin-bottom: var(--spacing-16); opacity: 0.7;">
+                        *Simple touch interaction was chosen to ensure familiarity and ease of use on mobile devices.
+                    </p>
+
+                    <h2 class="project-section-title">Core Features</h2>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🌋</div>
+                            <div class="feature-text">
+                                <h4>Interactive 3D AR Simulations</h4>
+                                <p>Explorable 3D models of environmental disasters (flood, forest fire, drought) that
+                                    users can interact with in real-time AR.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">📍</div>
+                            <div class="feature-text">
+                                <h4>Educational Hotspots</h4>
+                                <p>Context-aware labels and interactive points within the 3D space that provide
+                                    data-driven insights and facts about each disaster.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">🎭</div>
+                            <div class="feature-text">
+                                <h4>Before-After Comparison</h4>
+                                <p>A sliding transition feature that allows users to see the transformation of a
+                                    landscape from pristine to disaster-struck with a single gesture.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">💡</div>
+                            <div class="feature-text">
+                                <h4>Solution-Based Learning</h4>
+                                <p>Interactive quests that guide users through potential solutions and preventive
+                                    measures for each environmental challenge.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">📝</div>
+                            <div class="feature-text">
+                                <h4>Quiz-Based Evaluation</h4>
+                                <p>Integrated assessment system to test user knowledge and confirm learning outcomes
+                                    after completing AR sessions.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">📈</div>
+                            <div class="feature-text">
+                                <h4>Progress Tracking</h4>
+                                <p>Visual indicators to monitor learning milestones, encouraging users to complete all
+                                    disaster modules.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: var(--spacing-12) 0; text-align: center; border-top: 1px solid rgba(15, 103, 177, 0.1);">
+        <p style="color: #0F67B1; font-size: var(--font-size-sm); opacity: 0.8;">
+            &copy; regitaarr, All rights reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

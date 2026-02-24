@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Regita Cahya Arrahma - Front-End Developer & UI/UX Designer Portfolio. Showcasing modern web development and user interface design projects.">
+    <meta name="keywords" content="Frontend Developer, UI/UX Designer, Web Development, Portfolio">
+    <meta name="author" content="Regita Cahya Arrahma">
+
+    <title>MyPortofolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">regitaarr</a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section class="hero section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image fade-in-up">
+                    <img src="assets/regita.jpeg" alt="Regita Cahya Arrahma Profile Photo" class="profile-photo">
+                    <!-- Decorative Sky Elements -->
+                    <div class="cloud cloud-1">☁️</div>
+                    <div class="cloud cloud-2">☁️</div>
+                </div>
+
+                <div class="hero-text fade-in-up">
+                    <h1>Hi, I'm Regita Cahya Arrahma 👋</h1>
+                    <p class="role">Front-End Developer & UI/UX Designer</p>
+                    <p class="tagline">I design and build intuitive digital experiences that users love.</p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Project</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title scroll-reveal" style="color: #0F67B1;">About Me</h2>
+
+            <div class="about-content">
+                <div class="about-intro scroll-reveal" style="text-align: justify; color: #0F67B1;">
+                    <p>
+                        I am an Informatics student at Universitas Teknologi Yogyakarta with a strong
+                        interest in Front-End Development and UI/UX Design. I have experience developing intuitive
+                        and
+                        functional web and mobile interfaces.
+                    </p>
+                    <p>
+                        I possess a foundational understanding of web and mobile development and focus on creating
+                        visually engaging user experiences that align with technical requirements. I actively keep up
+                        with the latest technology trends and continuously improve my skills through various projects.
+                    </p>
+                </div>
+
+                <!-- Education Section -->
+                <div class="education-section scroll-reveal" style="margin-top: var(--spacing-12);">
+                    <h3 style="color: #0F67B1; margin-bottom: var(--spacing-6);">🎓 Education</h3>
+
+                    <!-- UTY -->
+                    <div class="education-item"
+                        style="margin-bottom: var(--spacing-8); padding: var(--spacing-6); background: var(--color-white); border-radius: var(--radius-lg); border-left: 4px solid var(--color-primary);">
+                        <h4
+                            style="color: #0F67B1; margin-bottom: var(--spacing-4); font-size: var(--font-size-xl); font-weight: var(--font-weight-bold);">
+                            Universitas Teknologi Yogyakarta <span
+                                style="color: #0F67B1; font-size: var(--font-size-sm); font-weight: var(--font-weight-normal);">
+                                (2022 – Present)</span></h4>
+
+                        <div style="margin-top: var(--spacing-4);">
+                            <p
+                                style="font-weight: var(--font-weight-semibold); color: #0F67B1; margin-bottom: var(--spacing-2);">
+                                Staff of Media Division – LDK IKMI UTY <span
+                                    style="color: #0F67B1; font-size: var(--font-size-sm); font-weight: var(--font-weight-normal);">
+                                    (October 2023 – August 2024)</span></p>
+                            <ul
+                                style="list-style: disc; padding-left: var(--spacing-6); color: #0F67B1; font-size: var(--font-size-sm); text-align: justify;">
+                                <li style="margin-bottom: var(--spacing-1);">Copywriter</li>
+                                <li style="margin-bottom: var(--spacing-1);">Created engaging captions for social media
+                                    posts</li>
+                                <li style="margin-bottom: var(--spacing-1);">Managed content scheduling</li>
+                                <li style="margin-bottom: var(--spacing-1);">Contributed to maintaining consistent and
+                                    appealing digital communication</li>
+                            </ul>
+
+                            <!-- Certificate & Committee Images -->
+                            <div
+                                style="margin-top: var(--spacing-4); display: flex; gap: var(--spacing-4); flex-wrap: wrap;">
+                                <img src="assets/ikmi.jpeg" alt="Staff Media Certificate - LDK IKMI UTY"
+                                    style="width: 100%; max-width: 300px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: block;">
+                                <img src="assets/panitia.jpeg" alt="Committee Photo - LDK IKMI UTY"
+                                    style="width: 100%; max-width: 300px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: block;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MAN 2 Ciamis -->
+                    <div class="education-item"
+                        style="padding: var(--spacing-6); background: var(--color-white); border-radius: var(--radius-lg); border-left: 4px solid var(--color-primary);">
+                        <h4
+                            style="color: #0F67B1; margin-bottom: var(--spacing-4); font-size: var(--font-size-xl); font-weight: var(--font-weight-bold);">
+                            MAN 2 Ciamis <span
+                                style="color: #0F67B1; font-size: var(--font-size-sm); font-weight: var(--font-weight-normal);">
+                                (2019 – 2022)</span></h4>
+
+                        <!-- Pramuka -->
+                        <div style="margin-top: var(--spacing-4); margin-bottom: var(--spacing-4);">
+                            <p
+                                style="font-weight: var(--font-weight-semibold); color: #0F67B1; margin-bottom: var(--spacing-2);">
+                                Secretary – Pramuka Ambalan Siti Masitoh <span
+                                    style="color: #0F67B1; font-size: var(--font-size-sm); font-weight: var(--font-weight-normal);">
+                                    (January 2020 – October 2021)</span></p>
+                            <ul
+                                style="list-style: disc; padding-left: var(--spacing-6); color: #0F67B1; font-size: var(--font-size-sm); text-align: justify;">
+                                <li style="margin-bottom: var(--spacing-1);">Managed administrative tasks including
+                                    report writing and document archiving</li>
+                                <li style="margin-bottom: var(--spacing-1);">Prepared and organized work programs</li>
+                                <li style="margin-bottom: var(--spacing-1);">Coordinated documentation and official
+                                    correspondence</li>
+                            </ul>
+
+                            <!-- Certificate & Activity Images -->
+                            <div
+                                style="margin-top: var(--spacing-4); display: flex; gap: var(--spacing-4); flex-wrap: wrap;">
+                                <img src="assets/sekretaris.jpeg"
+                                    alt="Secretary Certificate - Pramuka Ambalan Siti Masitoh"
+                                    style="width: 100%; max-width: 300px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: block;">
+                                <img src="assets/pramuka.jpeg" alt="Activity Photo - Pramuka Ambalan Siti Masitoh"
+                                    style="width: 100%; max-width: 300px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: block;">
+                            </div>
+                        </div>
+
+                        <!-- MPK -->
+                        <div style="margin-top: var(--spacing-4);">
+                            <p
+                                style="font-weight: var(--font-weight-semibold); color: #0F67B1; margin-bottom: var(--spacing-2);">
+                                Creative Division – MPK MAN 2 Ciamis <span
+                                    style="color: #0F67B1; font-size: var(--font-size-sm); font-weight: var(--font-weight-normal);">
+                                    (January 2020 – October 2021)</span></p>
+                            <ul
+                                style="list-style: disc; padding-left: var(--spacing-6); color: #0F67B1; font-size: var(--font-size-sm); text-align: justify;">
+                                <li style="margin-bottom: var(--spacing-1);">Managed social media accounts</li>
+                                <li style="margin-bottom: var(--spacing-1);">Scheduled and designed content posts</li>
+                                <li style="margin-bottom: var(--spacing-1);">Handled event photography and visual
+                                    documentation</li>
+                            </ul>
+
+                            <!-- Activity Photo -->
+                            <div style="margin-top: var(--spacing-4);">
+                                <img src="assets/mpk.jpeg" alt="Activity Photo - MPK MAN 2 Ciamis"
+                                    style="width: 100%; max-width: 300px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: block;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Licenses and Certifications -->
+                <div class="certifications-section scroll-reveal" style="margin-top: var(--spacing-12);">
+                    <h3 style="color: #0F67B1; margin-bottom: var(--spacing-6);">📜 Certifications & Publications</h3>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-6);">
+
+                        <!-- Cert 1 -->
+                        <div
+                            style="padding: var(--spacing-6); background: var(--color-white); border-radius: var(--radius-lg); border-top: 4px solid var(--color-primary); transition: transform var(--transition-base); box-shadow: var(--shadow-sm);">
+                            <h4
+                                style="color: #0F67B1; margin-bottom: var(--spacing-2); font-size: var(--font-size-lg);">
+                                Pelatihan Konsep Pemrograman Micro Skill</h4>
+                            <p style="color: #0F67B1; font-size: var(--font-size-sm); margin-bottom: var(--spacing-4);">
+                                Komdigi</p>
+                            <a href="assets/pemrograman.pdf" target="_blank" class="btn btn-outline">View
+                                Certificate</a>
+                        </div>
+
+                        <!-- Cert 2 -->
+                        <div
+                            style="padding: var(--spacing-6); background: var(--color-white); border-radius: var(--radius-lg); border-top: 4px solid var(--color-primary); transition: transform var(--transition-base); box-shadow: var(--shadow-sm);">
+                            <h4
+                                style="color: #0F67B1; margin-bottom: var(--spacing-2); font-size: var(--font-size-lg);">
+                                Fundamental Course: Intro to Software Engineering</h4>
+                            <p style="color: #0F67B1; font-size: var(--font-size-sm); margin-bottom: var(--spacing-4);">
+                                RevoU</p>
+                            <a href="assets/fundamental.pdf" target="_blank" class="btn btn-outline">View
+                                Certificate</a>
+                        </div>
+
+                        <!-- Cert 3 -->
+                        <div
+                            style="padding: var(--spacing-6); background: var(--color-white); border-radius: var(--radius-lg); border-top: 4px solid var(--color-primary); transition: transform var(--transition-base); box-shadow: var(--shadow-sm);">
+                            <h4
+                                style="color: #0F67B1; margin-bottom: var(--spacing-2); font-size: var(--font-size-lg);">
+                                Data Engineering Professional Certification</h4>
+                            <p style="color: #0F67B1; font-size: var(--font-size-sm); margin-bottom: var(--spacing-4);">
+                                RapidMiner Altair Company</p>
+                            <a href="assets/data.pdf" target="_blank" class="btn btn-outline">View
+                                Certificate</a>
+                        </div>
+
+                        <!-- Publication 1 -->
+                        <div
+                            style="padding: var(--spacing-6); background: var(--color-white); border-radius: var(--radius-lg); border-top: 4px solid var(--color-primary); transition: transform var(--transition-base); box-shadow: var(--shadow-sm);">
+                            <h4
+                                style="color: #0F67B1; margin-bottom: var(--spacing-2); font-size: var(--font-size-lg);">
+                                Published article: “Implementation of Face Recognition in a Mobile Student Attendance
+                                Application with Real- Time Parent
+                                Notifications”</h4>
+                            <p style="color: #0F67B1; font-size: var(--font-size-sm); margin-bottom: var(--spacing-4);">
+                                Jusikom: Jurnal Sistem Komputer Musirawas </p>
+                            <a href="https://jurnal.univbinainsan.ac.id/index.php/jusikom/article/view/2777/1465"
+                                target="_blank" class="btn btn-outline">View Journal</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Technical Skills Section -->
+                <div class="skills-section scroll-reveal" style="margin-top: var(--spacing-12);">
+                    <h3 style="color: #0F67B1; margin-bottom: var(--spacing-6);">🛠️ Technical Skills</h3>
+                    <div class="skills-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-6);">
+
+                        <!-- Category 1: Frontend & Design -->
+                        <div class="skill-card"
+                            style="padding: var(--spacing-8); background: #EAF4FF; border: 1px solid #0F67B1; border-radius: var(--radius-xl); color: #0F67B1; box-shadow: var(--shadow-sm); transition: transform var(--transition-base);">
+                            <h4
+                                style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-4); padding-bottom: var(--spacing-2); border-bottom: 2px solid rgba(15, 103, 177, 0.2); color: #0F67B1;">
+                                Frontend & Design</h4>
+                            <ul style="list-style: none; padding: 0; color: #0F67B1;">
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Figma
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Canva
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Corel Draw
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> HTML
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> CSS
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> JavaScript
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> MockFlow
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Bootstrap
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Category 2: Backend & Database -->
+                        <div class="skill-card"
+                            style="padding: var(--spacing-8); background: #EAF4FF; border: 1px solid #0F67B1; border-radius: var(--radius-xl); color: #0F67B1; box-shadow: var(--shadow-sm); transition: transform var(--transition-base);">
+                            <h4
+                                style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-4); padding-bottom: var(--spacing-2); border-bottom: 2px solid rgba(15, 103, 177, 0.2); color: #0F67B1;">
+                                Backend & Database</h4>
+                            <ul style="list-style: none; padding: 0; color: #0F67B1;">
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> PHP
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Node.js
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Python
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Database (MySQL, Firebase)
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Rest API
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Fonnte
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Gmail SMTP
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Category 3: Mobile & Advanced Tech -->
+                        <div class="skill-card"
+                            style="padding: var(--spacing-8); background: #EAF4FF; border: 1px solid #0F67B1; border-radius: var(--radius-xl); color: #0F67B1; box-shadow: var(--shadow-sm); transition: transform var(--transition-base);">
+                            <h4
+                                style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-4); padding-bottom: var(--spacing-2); border-bottom: 2px solid rgba(15, 103, 177, 0.2); color: #0F67B1;">
+                                Mobile & Advanced Tech</h4>
+                            <ul style="list-style: none; padding: 0; color: #0F67B1;">
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Flutter
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Internet of Things
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Augmented Reality
+                                </li>
+                                <li
+                                    style="margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: 8px;">
+                                    <span style="opacity: 0.8;">▹</span> Face Recognition
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <style>
+                        .skill-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 20px rgba(15, 103, 177, 0.3);
+                        }
+                    </style>
+                </div>
+
+                <div class="download-cv scroll-reveal" style="margin-top: var(--spacing-12);">
+                    <a href="assets/CV_REGITA CAHYA ARRAHMA.pdf" class="btn btn-primary" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">My Projects</h2>
+
+            <div class="filter-tabs scroll-reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="uiux">Desain UI/UX</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="fullstack">Fullstack</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- UI/UX: EarthGuard AR -->
+                <div class="project-card scroll-reveal" data-category="uiux">
+                    <div class="project-image">
+                        <img src="assets/EarthGuard.png" alt="EarthGuard AR Logo">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">EarthGuard AR</h3>
+                        <p class="project-description">An Augmented Reality (AR) mobile application that allows users to
+                            explore interactive 3D environmental disaster simulations, featuring educational hotspots,
+                            Before–After comparisons, and solution-based learning.</p>
+                        <div class="project-tags">
+                            <span class="tag">UI/UX Design</span>
+                            <span class="tag">Augmented Reality</span>
+                            <span class="tag">Canva</span>
+                            <span class="tag">Mobile</span>
+                            <span class="tag">Education</span>
+                            <span class="tag">Quiz</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="earthguard.html" class="project-link project-link-primary">View Design</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UI/UX & Fullstack: Smart Presensee Mobile -->
+                <div class="project-card scroll-reveal" data-category="uiux">
+                    <div class="project-image">
+                        <img src="assets/wk_dashboard.png" alt="Smart Presensee Mobile Dashboard Preview"
+                            style="width: 100%; height: 100%; object-fit: contain; background: #f0f8ff;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Presensee (Mobile)</h3>
+                        <p class="project-description">Designed clean and visually appealing mobile UI mockups,
+                            focusing on intuitive navigation and responsive mobile design to ensure a seamless
+                            and user-friendly experience.</p>
+                        <div class="project-tags">
+                            <span class="tag">UI/UX Design</span>
+                            <span class="tag">MockFlow</span>
+                            <span class="tag">Mobile App</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="sp_mobiledesign.html" class="project-link project-link-primary">View Design</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UI/UX: Smart Presensee Web -->
+                <div class="project-card scroll-reveal" data-category="uiux">
+                    <div class="project-image">
+                        <img src="assets/adm_dashboard.png" alt="Smart Presensee Web Dashboard Preview">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Presensee (Web)</h3>
+                        <p class="project-description">Designed high-fidelity web dashboard mockups for admin users,
+                            enabling efficient management of attendance data, report generation, and user
+                            configurations.
+                            The design emphasizes clean layouts, data clarity, and user-friendly interaction flows to
+                            enhance
+                            usability and productivity.</p>
+                        <div class="project-tags">
+                            <span class="tag">UI/UX Design</span>
+                            <span class="tag">MockFlow</span>
+                            <span class="tag">Web Dashboard</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="sp_webdesign.html" class="project-link project-link-primary">View Design</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fullstack: Smart Presensee Mobile -->
+                <div class="project-card scroll-reveal" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="assets/sp_beranda.jpg" alt="Smart Presensee Mobile Implementation Preview"
+                            style="width: 100%; height: 100%; object-fit: contain; background: #f0f8ff;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Presensee (Mobile)</h3>
+                        <p class="project-description">Mobile attendance system implementation with face recognition
+                            and GPS validation.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Fullstack</span>
+                            <span class="tag">Google ML kit</span>
+                            <span class="tag">Mobile App</span>
+                            <span class="tag">Face Recognition</span>
+                            <span class="tag">Fonnte</span>
+                            <span class="tag">Gmail</span>
+                            <span class="tag">Report</span>
+                            <span class="tag">Schedule</span>
+                            <span class="tag">Education</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="sp_mobile.html" class="project-link project-link-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fullstack: Smart Presensee Web -->
+                <div class="project-card scroll-reveal" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="assets/admin_beranda.png" alt="Smart Presensee Web Implementation Preview"
+                            style="width: 100%; height: 100%; object-fit: contain; background: #f0f8ff;">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Presensee (Web)</h3>
+                        <p class="project-description">Centralized web dashboard implementation for attendance
+                            monitoring and reporting.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Fullstack</span>
+                            <span class="tag">Fonnte</span>
+                            <span class="tag">Administrator</span>
+                            <span class="tag">Report</span>
+                            <span class="tag">Schedule</span>
+                            <span class="tag">Education</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="sp_web.html" class="project-link project-link-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal" data-category="frontend">
+                    <div class="project-image">
+                        <img src="https://private-user-images.githubusercontent.com/122368250/444350171-569e3755-b23f-4355-9a0b-64d3f916f849.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEzODM5MjYsIm5iZiI6MTc3MTM4MzYyNiwicGF0aCI6Ii8xMjIzNjgyNTAvNDQ0MzUwMTcxLTU2OWUzNzU1LWIyM2YtNDM1NS05YTBiLTY0ZDNmOTE2Zjg0OS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxOFQwMzAwMjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kMzU3ZmE2MGUwNGY5MjZmMzMwZGM3NmM3OTNjNThjNjk4OWFmNmJiNjlmNGE1NzNkNzA1MGU0MWJiMWQxZjZmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.sH_t_-mX-44Hl94qedT7x7pvCuCsdpk82Bm-NLunx88"
+                            alt="Web Profil Perusahaan Preview">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Company Profile Website</h3>
+                        <p class="project-description">Modern and responsive company profile website with clean
+                            aesthetic and
+                            smooth animations.</p>
+                        <div class="project-tags">
+                            <span class="tag">Frontend</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="ygent.html" class="project-link project-link-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend: Personal Profile -->
+                <div class="project-card scroll-reveal" data-category="frontend">
+                    <div class="project-image">
+                        <img src="https://private-user-images.githubusercontent.com/122368250/444352167-c15a540b-41eb-46b7-913e-70495d9d73f6.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzEzODYyMjUsIm5iZiI6MTc3MTM4NTkyNSwicGF0aCI6Ii8xMjIzNjgyNTAvNDQ0MzUyMTY3LWMxNWE1NDBiLTQxZWItNDZiNy05MTNlLTcwNDk1ZDlkNzNmNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIxOFQwMzM4NDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yNDM2M2EwMTliOWNmZTlhNDA0NTVjNjRiMDlkODRjY2QwMmQxYjdkNWUyMDdkYTVhY2FmNzhjNDc0NzQzYThhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.F9tLBTa7DbVRKEfB4LEB9NBQpXfT8znVly7tVX_DkIA"
+                            alt="Web Profil Personal Preview">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal Profile website</h3>
+                        <p class="project-description">Personal portfolio landing page showcasing skills, experience,
+                            and creative
+                            works.</p>
+                        <div class="project-tags">
+                            <span class="tag">Frontend</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JS</span>
+
+                        </div>
+                        <div class="project-links">
+                            <a href="jennie.html" class="project-link project-link-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Fullstack: Citizen Data Management -->
+                <div class="project-card scroll-reveal" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="https://github.com/user-attachments/assets/97e215dc-151f-4b1b-81e9-ddd95f006729"
+                            alt="Population Data Management Preview">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Population Data Management Website</h3>
+                        <p class="project-description">Web application for managing citizen demographic data with CRUD
+                            operations
+                            and reporting.</p>
+                        <div class="project-tags">
+                            <span class="tag">Fullstack</span>
+                            <span class="tag">JS</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="data_management.html" class="project-link project-link-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fullstack: Shop Cashier & Profile -->
+                <div class="project-card scroll-reveal" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="assets/toko.png" alt="Shop Cashier & Profile Website Preview">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Shop Cashier & Profile Website</h3>
+                        <p class="project-description">In-store POS and cashier system integrated with a public-facing
+                            company
+                            profile.</p>
+                        <div class="project-tags">
+                            <span class="tag">Fullstack</span>
+                            <span class="tag">Cashier</span>
+                            <span class="tag">Inventory</span>
+                            <span class="tag">Report</span>
+                            <span class="tag">Shop</span>
+                            <span class="tag">Dashboard</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://regitaarr.github.io/toko-arrahma/index.html" target="_blank"
+                                class="project-link project-link-primary">View Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Get In Touch</h2>
+
+            <div class="contact-content">
+                <div class="contact-intro scroll-reveal">
+                    <p>I’m open to work and actively seeking new opportunities. Let's create something amazing together!
+                    </p>
+                </div>
+
+                <div class="contact-info scroll-reveal"
+                    style="justify-content: center; max-width: 800px; margin: 0 auto;">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cahyaregita1412@gmail.com" target="_blank"
+                        class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>cahyaregita1412@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/regitaarr/" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>regitaarr</span>
+                    </a>
+                    <a href="https://github.com/regitaarr" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span>regitaarr</span>
+                    </a>
+                    <a href="https://www.instagram.com/regitaarr" target="_blank" class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <span>regitaarr</span>
+                    </a>
+                    <a href="https://wa.me/6281461220151" target="_blank" class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+6281461220151</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="padding: var(--spacing-8) 0; border-top: 1px solid var(--color-primary);">
+        <div class="container">
+            <p style="color: var(--color-primary); text-align: center;">&copy; regitaarr, All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

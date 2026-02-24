@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Presensee Web - Project Detail | Regita Cahya Arrahma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --project-primary: #0F67B1;
+            --project-secondary: #0F67B1;
+        }
+
+        body {
+            color: #0F67B1;
+        }
+
+        .project-detail-hero {
+            padding: var(--spacing-32) 0 var(--spacing-16);
+            background: var(--color-white);
+            text-align: center;
+        }
+
+        .project-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-category-tag {
+            display: inline-block;
+            padding: var(--spacing-2) var(--spacing-4);
+            background: rgba(15, 103, 177, 0.1);
+            color: #0F67B1;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-6);
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: var(--spacing-8) auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 103, 177, 0.2);
+            background: #f8fafc;
+        }
+
+        .mySlides {
+            display: none;
+            animation: fade 1.5s;
+        }
+
+        .mySlides img {
+            width: 100%;
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* Navigation Buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(15, 103, 177, 0.3);
+            text-decoration: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(15, 103, 177, 0.8);
+        }
+
+        /* Dots */
+        .dot-container {
+            text-align: center;
+            padding: 15px;
+            background: transparent;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 2px;
+            background-color: #cbd5e1;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #0F67B1;
+        }
+
+        .project-info-grid {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-24);
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-section-title {
+            font-size: var(--font-size-2xl);
+            color: #0F67B1;
+            margin-bottom: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .project-section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #0F67B1;
+            border-radius: var(--radius-full);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            border: 1px solid var(--color-gray-100);
+        }
+
+        .feature-content h4 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2);
+            color: #0F67B1;
+        }
+
+        .feature-content p {
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            color: #0F67B1;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: var(--spacing-6);
+            left: var(--spacing-6);
+            z-index: 1000;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-4);
+            background: #0F67B1;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            color: var(--color-white);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-base);
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-4px);
+            box-shadow: var(--shadow-lg);
+            background: #0d5ca0;
+        }
+
+        /* Status Cards */
+        .status-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .status-card {
+            padding: var(--spacing-8);
+            border-radius: var(--radius-2xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .status-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-left: 6px solid #f43f5e;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 6px solid #22c55e;
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-weight: 700;
+        }
+
+        .problem-card h3 {
+            color: #9f1239;
+        }
+
+        .solution-card h3 {
+            color: #166534;
+        }
+
+        .status-card p {
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .problem-card p {
+            color: #be123c;
+        }
+
+        .solution-card p {
+            color: #15803d;
+        }
+
+        .status-icon {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .status-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="back-nav">
+        <a href="index.html#projects" class="btn-back">
+            <span>&larr;</span> Back to Projects
+        </a>
+    </nav>
+
+    <header class="project-detail-hero">
+        <div class="project-hero-content">
+            <span class="project-category-tag">UI/UX Design</span>
+            <span class="project-category-tag">MockFlow</span>
+            <span class="project-category-tag">Web Dashboard</span>
+            <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-4); color: #0F67B1;">Smart
+                Presensee (Web)</h1>
+            <p style="font-size: var(--font-size-lg); opacity: 0.9; margin-bottom: var(--spacing-8); color: #0F67B1;">
+                Comprehensive web dashboard design for managing attendance data, reports, and user configurations.
+            </p>
+
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="assets/adm_loginSignup.png" alt="Login & Signup">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_sandi.png" alt="Sandi">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_dashboard.png" alt="Dashboard">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_profil.png" alt="Profil">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_siswa.png" alt="Siswa">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_wajah.png" alt="Wajah">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_jadwal.png" alt="Jadwal">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_presensi.png" alt="Presensi">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_pengguna.png" alt="Pengguna">
+                </div>
+                <div class="mySlides">
+                    <img src="assets/adm_laporan.png" alt="Laporan">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                <span class="dot" onclick="currentSlide(7)"></span>
+                <span class="dot" onclick="currentSlide(8)"></span>
+                <span class="dot" onclick="currentSlide(9)"></span>
+                <span class="dot" onclick="currentSlide(10)"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="project-info-grid">
+        <div class="project-main-content">
+            <section class="project-detail-section">
+                <h2 class="project-section-title">About Project</h2>
+                <p style="margin-bottom: var(--spacing-12); text-align: justify; color: #0F67B1;">
+                    Smart Presensee Web is a UI/UX design project for a comprehensive web-based attendance management
+                    dashboard. The design focuses on providing administrators with an intuitive and efficient interface
+                    to monitor attendance records, manage users, generate reports, and configure system settings — all
+                    within a clean and modern dashboard layout.
+                </p>
+
+                <div class="status-cards-grid">
+                    <div class="status-card problem-card">
+                        <h3>
+                            <span class="status-icon">🎯</span> Problem
+                        </h3>
+                        <p style="text-align: justify;">
+                            Managing school attendance manually or through fragmented tools leads to inefficiency,
+                            errors in data recording, and difficulty in generating meaningful reports for stakeholders.
+                        </p>
+                    </div>
+                    <div class="status-card solution-card">
+                        <h3>
+                            <span class="status-icon">💡</span> Solution
+                        </h3>
+                        <p style="text-align: justify;">
+                            The design focuses on providing administrators with an intuitive and efficient interface to
+                            monitor attendance records, manage users, manage schedules, generate reports, and configure
+                            system settings all within a clean and modern dashboard layout.
+                        </p>
+                    </div>
+                </div>
+
+                <h2 class="project-section-title">Key Features</h2>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h4>Dashboard Overview</h4>
+                        <p>Real-time overview of attendance statistics, total registered students,
+                            active users, and daily attendance rates for efficient monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🗓️</div>
+                    <div class="feature-content">
+                        <h4>Schedule Management</h4>
+                        <p>Manage and view class schedules to align attendance tracking with the academic calendar.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📋</div>
+                    <div class="feature-content">
+                        <h4>Attendance Reports</h4>
+                        <p>Generate detailed attendance reports filtered by class, date range, or individual student for
+                            easy monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-content">
+                        <h4>User & Student Management</h4>
+                        <p>Add, edit, and manage student data and system user accounts with role-based access control.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: var(--spacing-12) 0; border-top: 1px solid rgba(15, 103, 177, 0.1);">
+        <p style="opacity: 0.8; font-size: var(--font-size-sm);">© regitaarr, All rights reserved</p>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        }
+
+        // Auto slide
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+    </script>
+</body>
+
+</html>

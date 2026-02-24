@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Data Management - Project Detail | Regita Cahya Arrahma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --project-primary: #0F67B1;
+            --project-secondary: #0F67B1;
+        }
+
+        body {
+            color: #0F67B1;
+        }
+
+        .project-detail-hero {
+            padding: var(--spacing-32) 0 var(--spacing-16);
+            background: var(--color-white);
+            text-align: center;
+        }
+
+        .project-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-category-tag {
+            display: inline-block;
+            padding: var(--spacing-2) var(--spacing-4);
+            background: rgba(15, 103, 177, 0.1);
+            color: #0F67B1;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .slideshow-container {
+            max-width: 900px;
+            position: relative;
+            margin: var(--spacing-8) auto;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 103, 177, 0.15);
+        }
+
+        .mySlides {
+            display: none;
+            animation: fade 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .mySlides img {
+            width: 100%;
+            display: block;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(15, 103, 177, 0.3);
+            text-decoration: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(15, 103, 177, 0.8);
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 4px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #0F67B1;
+        }
+
+        .project-info-grid {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-24);
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-section-title {
+            font-size: var(--font-size-2xl);
+            color: #0F67B1;
+            margin-bottom: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .project-section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #0F67B1;
+            border-radius: var(--radius-full);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            border: 1px solid var(--color-gray-100);
+        }
+
+        .feature-content h4 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-2);
+            color: #0F67B1;
+        }
+
+        .feature-content p {
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            color: #0F67B1;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: var(--spacing-6);
+            left: var(--spacing-6);
+            z-index: 1000;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-4);
+            background: #0F67B1;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            color: var(--color-white);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-base);
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-4px);
+            box-shadow: var(--shadow-lg);
+            background: #0d5ca0;
+        }
+
+        /* Gen Z - Status Cards */
+        .status-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .status-card {
+            padding: var(--spacing-8);
+            border-radius: var(--radius-2xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .status-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-left: 6px solid #f43f5e;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 6px solid #22c55e;
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-weight: 700;
+        }
+
+        .problem-card h3 {
+            color: #9f1239;
+        }
+
+        .solution-card h3 {
+            color: #166534;
+        }
+
+        .status-card p {
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .problem-card p {
+            color: #be123c;
+        }
+
+        .solution-card p {
+            color: #15803d;
+        }
+
+        .status-icon {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .status-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="back-nav">
+        <a href="index.html#projects" class="btn-back">
+            <span>&larr;</span> Back to Projects
+        </a>
+    </nav>
+
+    <header class="project-detail-hero">
+        <div class="project-hero-content">
+            <span class="project-category-tag">Fullstack</span>
+            <span class="project-category-tag">JS</span>
+            <span class="project-category-tag">CSS</span>
+            <span class="project-category-tag">PHP</span>
+            <span class="project-category-tag">MySQL</span>
+            <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-4); color: #0F67B1;">Population
+                Data
+                Management</h1>
+            <p style="font-size: var(--font-size-lg); opacity: 0.9; margin-bottom: var(--spacing-8); color: #0F67B1;">
+                A comprehensive administrative system for managing community demographic data and reporting.
+            </p>
+
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="https://github.com/user-attachments/assets/aab3d91c-36b4-47ec-99d2-7484d677d894"
+                        alt="Population Data Management - Login">
+                </div>
+                <div class="mySlides">
+                    <img src="https://github.com/user-attachments/assets/97e215dc-151f-4b1b-81e9-ddd95f006729"
+                        alt="Population Data Management - Dashboard">
+                </div>
+                <div class="mySlides">
+                    <img src="https://github.com/user-attachments/assets/5d534c06-fd70-42f7-8e4e-6c998a912990"
+                        alt="Population Data Management - Edit Data">
+                </div>
+                <div class="mySlides">
+                    <img src="https://github.com/user-attachments/assets/d645b5cc-8935-428e-847e-0262add77787"
+                        alt="Population Data Management - Anggota KK">
+                </div>
+                <div class="mySlides">
+                    <img src="https://github.com/user-attachments/assets/12c10a90-746c-4003-9778-288d6488092b"
+                        alt="Population Data Management - Tambah Kelahiran">
+                </div>
+                <div class="mySlides">
+                    <img src="https://github.com/user-attachments/assets/dc43d757-085b-431f-a507-3deb207f47ba"
+                        alt="Population Data Management - Info Kelahiran">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="project-info-grid">
+        <div class="project-main-content">
+            <section class="project-detail-section">
+                <h2 class="project-section-title">About Project</h2>
+                <p style="margin-bottom: var(--spacing-12); text-align: justify; color: #0F67B1;">
+                    The Population Data Management system is a fullstack web application designed to streamline
+                    administrative tasks
+                    for local governments and community leaders. It provides a centralized platform for creating,
+                    updating, and
+                    deleting citizen records, while offering robust reporting tools for demographic analysis. The system
+                    ensures data integrity and accessibility with a focus on ease of use.
+                </p>
+
+                <div class="status-cards-grid">
+                    <div class="status-card problem-card">
+                        <h3>
+                            <span class="status-icon">🎯</span> Problem
+                        </h3>
+                        <p style="text-align: justify;">
+                            Paper-based or fragmented digital record-keeping leads to data inconsistency, slow
+                            processing times,
+                            and difficulty in generating accurate population reports.
+                        </p>
+                    </div>
+                    <div class="status-card solution-card">
+                        <h3>
+                            <span class="status-icon">💡</span> Solution
+                        </h3>
+                        <p style="text-align: justify;">
+                            A web-based management dashboard built with logical CRUD workflows, secure database
+                            integration,
+                            and an intuitive user interface for efficient data entry and extraction.
+                        </p>
+                    </div>
+                </div>
+
+                <h2 class="project-section-title">Key Features</h2>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📝</div>
+                    <div class="feature-content">
+                        <h4>CRUD Operations</h4>
+                        <p>Easily manage citizen data including names, addresses, and demographic details with a smooth
+                            interface.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h4>Automated Reporting</h4>
+                        <p>Generate summary reports and demographic statistics at the click of a button for
+                            administrative use.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-content">
+                        <h4>Data Security</h4>
+                        <p>Protected access levels ensuring that only authorized personnel can view or modify sensitive
+                            citizen information.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-content">
+                        <h4>Advanced Search</h4>
+                        <p>Quickly locate specific citizen records using a powerful filtering and search system.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: var(--spacing-12) 0; border-top: 1px solid rgba(15, 103, 177, 0.1);">
+        <p style="opacity: 0.8; font-size: var(--font-size-sm); color: #0F67B1;">© regitaarr, All rights reserved
+            reserved.</p>
+    </footer>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        // Auto slideshow
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+    </script>
+</body>
+
+</html>

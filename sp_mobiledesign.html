@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Presensee Mobile - Project Detail | Regita Cahya Arrahma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --project-primary: #0F67B1;
+            --project-secondary: #0F67B1;
+        }
+
+        body {
+            color: #0F67B1;
+        }
+
+        .project-detail-hero {
+            padding: var(--spacing-32) 0 var(--spacing-16);
+            background: var(--color-white);
+            text-align: center;
+        }
+
+        .project-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-category-tag {
+            display: inline-block;
+            padding: var(--spacing-2) var(--spacing-4);
+            background: rgba(15, 103, 177, 0.1);
+            color: #0F67B1;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .project-info-grid {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-24);
+            padding: 0 var(--spacing-6);
+        }
+
+        .project-section-title {
+            font-size: var(--font-size-2xl);
+            color: #0F67B1;
+            margin-bottom: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .project-section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #0F67B1;
+            border-radius: var(--radius-full);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: var(--spacing-4);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            border: 1px solid var(--color-gray-100);
+        }
+
+        .feature-text h4 {
+            margin-bottom: var(--spacing-2);
+            color: #0F67B1;
+        }
+
+        .feature-text p {
+            color: #0F67B1;
+            opacity: 0.9;
+            font-size: var(--font-size-sm);
+            text-align: justify;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: var(--spacing-6);
+            left: var(--spacing-6);
+            z-index: 1000;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: var(--spacing-2) var(--spacing-4);
+            background: #0F67B1;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            color: var(--color-white);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-base);
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-4px);
+            box-shadow: var(--shadow-lg);
+            color: var(--color-white);
+            background: #0d5ca0;
+        }
+
+        /* Status Cards */
+        .status-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .status-card {
+            padding: var(--spacing-8);
+            border-radius: var(--radius-2xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .status-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .status-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-left: 6px solid #f43f5e;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 6px solid #22c55e;
+        }
+
+        .status-card h3 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            font-weight: 700;
+        }
+
+        .problem-card h3 {
+            color: #9f1239;
+        }
+
+        .solution-card h3 {
+            color: #166534;
+        }
+
+        .status-card p {
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .problem-card p {
+            color: #be123c;
+        }
+
+        .solution-card p {
+            color: #15803d;
+        }
+
+        .status-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Screen Gallery — same as earthguard.html */
+        .screen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-8);
+            margin-top: var(--spacing-8);
+        }
+
+        .screen-item {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(15, 103, 177, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--color-white);
+        }
+
+        .screen-item:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(15, 103, 177, 0.15);
+            border-color: #0F67B1;
+        }
+
+        .screen-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .screen-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .status-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="back-nav">
+        <a href="index.html#projects" class="btn-back">
+            <span>←</span> Back to Projects
+        </a>
+    </nav>
+
+    <header class="project-detail-hero">
+        <div class="project-hero-content">
+            <span class="project-category-tag">UI/UX Design</span>
+            <span class="project-category-tag">MockFlow</span>
+            <span class="project-category-tag">Mobile App</span>
+            <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-4); color: #0F67B1;">Smart
+                Presensee (Mobile)</h1>
+            <p
+                style="color: #0F67B1; font-size: var(--font-size-lg); line-height: var(--line-height-relaxed); text-align: center;">
+                Mobile attendance system with face recognition for efficient and accurate student presence tracking.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="project-info-grid">
+            <div class="project-main-content">
+                <section class="project-detail-section">
+
+                    <div class="status-cards-grid">
+                        <div class="status-card problem-card">
+                            <h3>
+                                <span class="status-icon">🎯</span> Problem
+                            </h3>
+                            <p style="text-align: justify;">
+                                Traditional attendance systems are prone to proxy attendance, manual errors, and lack
+                                real-time visibility for teachers and parents, leading to unreliable records.
+                            </p>
+                        </div>
+                        <div class="status-card solution-card">
+                            <h3>
+                                <span class="status-icon">💡</span> Solution
+                            </h3>
+                            <p style="text-align: justify;">
+                                Designed clean and intuitive mobile UI mockups for a face recognition-based
+                                attendance system. The interface focuses on clarity, ease of check-in, and
+                                seamless navigation, while visually supporting real-time notifications and
+                                attendance tracking features to enhance user trust and usability.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2 class="project-section-title">About Project</h2>
+                    <p style="margin-bottom: var(--spacing-8); color: #0F67B1; text-align: justify;">
+                        Smart Presensee Mobile is a UI/UX design project for a Flutter-based mobile attendance
+                        application. The design focuses on delivering a seamless experience for students to mark
+                        attendance via face recognition, view their attendance history, and manage schedules —
+                        all within an intuitive mobile interface.
+                    </p>
+
+                    <h2 class="project-section-title" style="margin-top: var(--spacing-16);">Screen Design</h2>
+                    <p style="margin-bottom: var(--spacing-8); color: #0F67B1; text-align: justify;">
+                        The user interface is designed with a focus on simplicity and ease of use on mobile devices.
+                        Below is the complete visual design of all screens, showcasing the core flows and interactive
+                        elements.
+                    </p>
+
+                    <div class="screen-grid" style="margin-bottom: var(--spacing-24);">
+                        <div class="screen-item"><img src="assets/wk_login.png" alt="Login"></div>
+                        <div class="screen-item"><img src="assets/wk_login_signup.png" alt="Login & Signup"></div>
+                        <div class="screen-item"><img src="assets/wk_lupaKataSandi.png" alt="Lupa Kata Sandi"></div>
+                        <div class="screen-item"><img src="assets/wk_dashboard.png" alt="Dashboard"></div>
+                        <div class="screen-item"><img src="assets/wk_profile.png" alt="Profile"></div>
+                        <div class="screen-item"><img src="assets/wk_presensi1.png" alt="Presensi 1"></div>
+                        <div class="screen-item"><img src="assets/wk_presensi2.png" alt="Presensi 2"></div>
+                        <div class="screen-item"><img src="assets/wk_presensi3.png" alt="Presensi 3"></div>
+                        <div class="screen-item"><img src="assets/wk_kehadiran.png" alt="Kehadiran"></div>
+                        <div class="screen-item"><img src="assets/wk_riyawatPresensi.png" alt="Riwayat Presensi"></div>
+                        <div class="screen-item"><img src="assets/wk_jadwal.png" alt="Jadwal"></div>
+                        <div class="screen-item"><img src="assets/wk_tambahDataSiswa.png" alt="Tambah Data Siswa"></div>
+                    </div>
+
+                    <h2 class="project-section-title">Core Features</h2>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🤳</div>
+                            <div class="feature-text">
+                                <h4>Face Recognition Attendance</h4>
+                                <p>Students mark attendance using real-time face recognition to prevent proxy and ensure
+                                    accuracy.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-text">
+                                <h4>Dashboard Overview</h4>
+                                <p>A clean home screen displaying daily attendance summaries,
+                                    class schedules, and quick access to attendance features for homeroom teachers.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">📅</div>
+                            <div class="feature-text">
+                                <h4>Attendance Record</h4>
+                                <p>Homeroom teachers can view and manage complete student attendance records with date
+                                    filters and status indicators.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">🗓️</div>
+                            <div class="feature-text">
+                                <h4>Schedule Management</h4>
+                                <p>Weekly class schedules are available to
+                                    help homeroom teachers track sessions and attendance requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">👤</div>
+                            <div class="feature-text">
+                                <h4>Student & Face Data Management</h4>
+                                <p>Homeroom teachers can manage student profiles and register students’
+                                    face data for the recognition system.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: var(--spacing-12) 0; text-align: center; border-top: 1px solid rgba(15, 103, 177, 0.1);">
+        <p style="color: #0F67B1; font-size: var(--font-size-sm); opacity: 0.8;">
+            &copy; regitaarr, All rights reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
