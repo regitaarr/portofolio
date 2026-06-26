@@ -1,1 +1,1 @@
-python -m http.server 8000
+(https://regitaarr.github.io/portofolio/)
